@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  ms:
+    container_name: purchases_ms
+    restart: always
+    build: .
+    ports:
+      - "5000:3000"
+    links:
+      - "bd"
+    volumes:
+      - .:/usr/src/app
+  bd:
+    container_name: purchases_bd
+    image: mongo
+    ports: 
+      - "4040:27017"
