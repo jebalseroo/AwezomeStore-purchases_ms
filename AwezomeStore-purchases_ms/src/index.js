@@ -1,5 +1,6 @@
 const express = require('express')
 const CouponRoutes = require("./routes/Coupon.Routes");
+const ProductRoutes = require("./routes/Product.Routes");
 const app = express();
 require('./database')
 
@@ -11,6 +12,7 @@ app.use(express.json());
 
 // Routes
 app.use("/Coupon", CouponRoutes);
+app.use("/Product", ProductRoutes);
 
 
 app.listen(3000);
