@@ -165,6 +165,26 @@ ProductCtrl.deleteProduct = async (req, res, next) => {
   }
 };
 
+ProductCtrl.getProductall = async (req, res, next) => {
+    try {
+      const { id_product1  } = req.body;
+  
+      if (!id_product1)
+        throw "The required data is incomplete";
+  
+      const product = await Product.find({id_product: id_product1}).populate("Coupons")
+  
+      return res.status(200).json(product);
+    } catch (err) {
+      if (!err.message) {
+        return res.status(400).json({ message: err });
+      } else {
+        return res.status(400).json({
+          message: "The  product  does not exist",
+        });
+      }
+    }
+  };
 
 
 module.exports = ProductCtrl;

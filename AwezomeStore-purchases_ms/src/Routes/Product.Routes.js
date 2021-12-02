@@ -4,6 +4,7 @@ const router = Router();
 const {
   addProduct,
   getProduct,
+  getProductall,
   deleteProduct,
   updateProduct,
   addCouponinProduct,
@@ -16,6 +17,8 @@ const {
 router.post("/add", addProduct);
 
 router.get("/", getProduct);
+
+router.get("/all", getProductall);
 
 router.put("/updateProduct", updateProduct);
 
