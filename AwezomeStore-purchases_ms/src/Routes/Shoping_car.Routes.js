@@ -5,8 +5,6 @@ const {
   addCar,
   getCar,
   getCarall,
-  deleteCar,
-  updateCar,
   addProductincar,
   removeProductinCar,
 } =  require("../Controllers/Shopoing_car.Controller");
@@ -14,19 +12,15 @@ const {
 
 // Routes
 
-// router.post("/add", addCar);
+router.post("/add", addCar);
 
-// router.get("/", getCar);
+router.get("/", getCar);
 
-// router.get("/all", getCarall);
+router.get("/all", getCarall);
 
-// router.put("/updateProduct", updateCar);
+router.put("/addProduct", addProductincar);
 
-// router.delete("/", deleteCar);
-
-// router.put("/addProduct", addProductincar);
-
-// router.put("/RemoveProduct", removeProductinCar);
+router.put("/RemoveProduct", removeProductinCar);
 
 
 
