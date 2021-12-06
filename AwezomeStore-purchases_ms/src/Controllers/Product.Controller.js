@@ -116,15 +116,19 @@ ProductCtrl.removeCouponinProduct = async (req, res, next) => {
       throw "The required data is incomplete";
 
     var product = await Product.findById(Id);
-    console.log(product)
-    const position = product.Coupons.findIndex(el => el === Id_Coupon);
-    console.log(position)
-    if (position < 0)
+    var flag = 0
+    for(var i in product.Coupons){
+      if (Id_Coupon == product.Coupons[i].toString()){
+        product.Coupons.splice(i, 1);
+        flag = 1
+        break
+      }
+    }
+    if (flag == 0){
       return res.status(400).json({
-        message: "The Coupon is not  of the Product."
+        message: "The Product is not a exist of the Shoping_Car."
       })
-
-    product.Coupons.splice(position, 1);
+    }
 
     await Product.findByIdAndUpdate(Id, product);
 
