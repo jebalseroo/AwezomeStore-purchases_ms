@@ -1,0 +1,27 @@
+version: '3'
+services:
+  user-server:
+    container_name: api
+    # network_mode: "host"
+    build: ./awezomestore_api
+    ports:
+        - 4010:4010
+    env_file:
+        - ./awezomestore_api/environment/.env.development
+    #network_mode: host
+  ms:
+    container_name: purchases_ms
+    restart: always
+    build: ./AwezomeStore-purchases_ms
+    ports:
+      - "5000:3000"
+    links:
+      - "bd"
+    volumes:
+      - ./AwezomeStore-purchases_ms:/usr/src/app
+  bd:
+    container_name: purchases_bd
+    build: ./AwezomeStore-purchases_ms
+    image: mongo
+    ports: 
+      - "4040:27017"
