@@ -1,0 +1,123 @@
+# Coupon
+type CouponId {
+  oid: String
+}
+
+type Coupon {
+  name: String
+  Aplied: Boolean
+  value: Int
+  couponId: CouponId
+}
+
+# Product
+type ProductId {
+  oid: String
+}
+
+type Product {
+  id_product: String!
+  Avalable: Boolean
+  Amound: Int
+  Coupons: ProductId
+}
+# ShopingCar
+type ShopingCarId {
+  oid: String
+}
+
+type ShopingCar {
+  id_User: String
+  Value: Int
+  Total_products: Int
+  Products: [String]
+}
+# Coupon
+input DeleteCoupon {
+  CouponId: String!
+}
+input AddCoupon{
+  name: String
+  Aplied: Boolean
+  value: Int
+}
+input GetCoupon {
+  CouponId: String!
+}
+input UpdateCoupon{
+  name: String
+  Aplied: Boolean
+  value: Int
+  CouponId: String!
+}
+input CouponIdInput {
+  id: String
+}
+# Product
+input GetProduct {
+  id_product1: String  
+}
+input AddProduct {
+  id_product1: String!
+  Avalable: Boolean
+  Amound: Int
+}
+input updateProduct {
+  id: String
+  Avalable1: Boolean
+  Amound1: Int
+}
+input delateProduct {
+  id: String
+}
+input addCouponinProduct {
+  id: String
+  id_coupon: String
+}
+input removeCouponinProduct {
+  Id: String
+  Id_coupon: String
+}
+
+# ShopingCar
+input GetShopingCar {
+  Id_User: String!
+}
+input AddShopingCar {
+  id_User: String!
+}
+input addProductinShopingCar {
+  Id: String
+  id_product: String
+}
+input removeProductinShopingCar {
+  Id: String
+  Id_coupon: String
+}
+
+
+type Query{
+  # Coupon
+  getCouponById(data: GetCoupon): Coupon
+  # Product
+  getProductById(data: GetProduct): Product
+  # ShopingCar
+  getShopingCartById(data: GetShopingCar): ShopingCar
+}
+
+type Mutation{
+  # Coupon
+  createCoupon(data: AddCoupon): Coupon
+  updateCoupon(data: UpdateCoupon): String
+  delateCoupon(data: DeleteCoupon): String
+  # Product
+  createProduct(data: AddProduct): Product
+  updateProduct(data: updateProduct): String
+  delateProduct(data: delateProduct): String
+  addCouponinProduct(data: addCouponinProduct): String
+  removeCouponinProduct(data: removeCouponinProduct): String
+  # ShopingCar
+  createShopingCar(data: AddShopingCar): ShopingCar
+  addProductinShopingCar(data: addProductinShopingCar): String
+  removeProductinShopingCar(data: removeProductinShopingCar): String
+}
