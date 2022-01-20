@@ -1,5 +1,5 @@
-const Car = require("../models/Shoping_car")
-const Product = require("../models/Product");
+const Car = require("../Models/Shoping_car")
+const Product = require("../Models/Product");
 const CarCtrl = {};
 
 CarCtrl.addCar = async (req, res, next) => {

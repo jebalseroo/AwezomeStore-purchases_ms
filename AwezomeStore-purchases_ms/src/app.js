@@ -1,6 +1,6 @@
 const express = require("express");
 
-const CouponRoutes = require("./routes/Coupon.Routes");
+const CouponRoutes = require("./Routes/Coupon.Routes");
 
 
 const app = express();

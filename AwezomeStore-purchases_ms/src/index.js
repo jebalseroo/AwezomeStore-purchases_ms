@@ -1,7 +1,7 @@
 const express = require('express')
-const CouponRoutes = require("./routes/Coupon.Routes");
-const ProductRoutes = require("./routes/Product.Routes");
-const CarRoutes = require("./routes/Shoping_car.Routes");
+const CouponRoutes = require("./Routes/Coupon.Routes");
+const ProductRoutes = require("./Routes/Product.Routes");
+const CarRoutes = require("./Routes/Shoping_car.Routes");
 const app = express();
 require('./database')
 
